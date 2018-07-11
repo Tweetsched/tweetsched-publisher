@@ -2,8 +2,24 @@ language: python
 python:
   - "3.6"
 
+branches:
+  only:
+    - master
+
 before_install:
   - pip install -r requirements.txt
 
 script:
   - python test.py
+
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+  on:
+    branch: master
+    repo: Tweetsched/tweetsched-publisher
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
