@@ -34,7 +34,7 @@ def publish_tweet():
         logging.info('Tweet was posted')
         return jsonify({'status': 'Tweet was posted'}), 200
     except TwythonError as e:
-        logging.error('Tweet was not posted. Error: ')
+        logging.error('Tweet was not posted. Error: ' + str(e))
         return jsonify({'status': 'Tweet was not posted'}), 502
 
 @app.errorhandler(404)
