@@ -9,5 +9,15 @@ REST service for publishing tweets.
  - Python 3.6 or higher
  - pip
 
+## How to configure:
+
+The service requires that next environmental variables should be setted:
+ - APP_KEY
+ - APP_SECRET
+ - OAUTH_TOKEN
+ - OAUTH_TOKEN_SECRET
+ - SERVICE_KEY
+ - SERVICE_PASS
+ 
 ## How to run locally:
 `python app.py`
