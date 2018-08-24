@@ -20,4 +20,5 @@ The service requires that next environmental variables should be setted:
  - SERVICE_PASS
  
 ## How to run locally:
-`python app.py`
+ - `pip install -r requirements.txt`
+ - `python app.py`
