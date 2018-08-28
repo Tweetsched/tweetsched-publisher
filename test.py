@@ -26,8 +26,8 @@ class TestApp(unittest.TestCase):
             'Authorization': 'Basic ' + b64encode(auth).decode()
         }
         rv = self.app.post('/api/v1/tweets',
-                           data=json.dumps(dict(id=3, message='test tweet', profileId='1')),
-                           content_type='application/json',
+                           data=json.dumps(dict(id = 3, message = 'test tweet', profileId = '1')),
+                           content_type = 'application/json',
                            headers=headers)
 
         self.assertEqual(rv.status_code, 200)
