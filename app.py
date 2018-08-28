@@ -4,7 +4,7 @@ from flask import Flask, jsonify, make_response, request, abort
 from flask_httpauth import HTTPBasicAuth
 from twython import Twython
 
-logging.basicConfig(filename='tweetsched-publisher.log', level=logging.INFO)
+logging.basicConfig(filename = 'tweetsched-publisher.log', level = logging.INFO)
 auth = HTTPBasicAuth()
 app = Flask(__name__)
 
@@ -19,7 +19,7 @@ def unauthorized():
     logging.info('Unauthorized access')
     return make_response(jsonify({'error': 'Unauthorized access'}), 403)
 
-@app.route('/api/v1/tweets', methods=['POST'])
+@app.route('/api/v1/tweets', methods = ['POST'])
 @auth.login_required
 def publish_tweet():
     if not request.json or not 'profileId' or not 'message' in request.json:
