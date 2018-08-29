@@ -26,9 +26,9 @@ class TestApp(unittest.TestCase):
             'Authorization': 'Basic ' + b64encode(auth).decode()
         }
         rv = self.app.post('/api/v1/tweets',
-                           data=json.dumps(dict(id = 3, message = 'test tweet', profileId = '1')),
+                           data = json.dumps(dict(id = 3, message = 'test tweet', profileId = '1')),
                            content_type = 'application/json',
-                           headers=headers)
+                           headers = headers)
 
         self.assertEqual(rv.status_code, 200)
         self.assertEqual(update_status_mock.call_count, 1)
@@ -42,5 +42,5 @@ class TestApp(unittest.TestCase):
         rv = self.app.get('/i-am-not-found', headers=headers)
         self.assertEqual(rv.status_code, 404)
 
-if __name__ == '__main__':
+if __name__ is '__main__':
     unittest.main()
