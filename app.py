@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @auth.get_password
 def get_password(username):
-    if username == os.environ['SERVICE_KEY']:
+    if username is os.environ['SERVICE_KEY']:
         return os.environ['SERVICE_PASS']
     return None
 
@@ -30,7 +30,7 @@ def publish_tweet():
                       os.environ['OAUTH_TOKEN'],
                       os.environ['OAUTH_TOKEN_SECRET'])
     try:
-        twitter.update_status(status=request.json['message'])
+        twitter.update_status(status = request.json['message'])
         logging.info('Tweet was posted')
         return jsonify({'status': 'Tweet was posted'}), 200
     except TwythonError as e:
@@ -42,5 +42,5 @@ def publish_tweet():
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
-if __name__ == '__main__':
-    app.run(debug=False)
+if __name__ is '__main__':
+    app.run(debug = False)
