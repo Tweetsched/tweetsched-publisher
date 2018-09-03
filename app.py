@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @auth.get_password
 def get_password(username):
-    if username is os.environ['SERVICE_KEY']:
+    if username == os.environ['SERVICE_KEY']:
         return os.environ['SERVICE_PASS']
     return None
 
@@ -42,5 +42,5 @@ def publish_tweet():
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
-if __name__ is '__main__':
+if __name__ == '__main__':
     app.run(debug = False)
