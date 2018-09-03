@@ -42,5 +42,5 @@ class TestApp(unittest.TestCase):
         rv = self.app.get('/i-am-not-found', headers=headers)
         self.assertEqual(rv.status_code, 404)
 
-if __name__ is '__main__':
+if __name__ == '__main__':
     unittest.main()
